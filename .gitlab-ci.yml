@@ -1,0 +1,17 @@
+image: mcr.microsoft.com/playwright:focal
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - pnpm install
+    - pnpm run test
+  artifacts:
+    paths:
+      - test-results/
+      - playwright-report/
+    expire_in: 7d
+    reports:
+      junit: test-results/results.xml
