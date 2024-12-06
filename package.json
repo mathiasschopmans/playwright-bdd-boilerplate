@@ -8,7 +8,7 @@
     "test:ui": "bddgen && playwright test --ui",
     "watch:bdd": "nodemon -w ./features -w ./steps -e feature,js,ts --exec \"npx bddgen\"",
     "watch:pw": "playwright test --ui",
-    "watch": "run-p watch:*"
+    "watch": "pnpm run \"/^watch:.*/\""
   },
   "keywords": [],
   "author": "",
