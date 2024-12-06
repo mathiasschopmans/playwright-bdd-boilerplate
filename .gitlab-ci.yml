@@ -5,7 +5,7 @@ cache:
     files:
       - pnpm-lock.yaml
   paths:
-    - ~/.cache/
+    - .pnpm-store
     - node_modules/
 
 before_script:
