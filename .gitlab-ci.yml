@@ -1,4 +1,4 @@
-image: mcr.microsoft.com/playwright:v1.49.0-focal
+image: mcr.microsoft.com/playwright:focal
 
 before_script:
   - corepack enable
