@@ -1,10 +1,15 @@
 image: mcr.microsoft.com/playwright:focal
 
+before_script:
+  - corepack enable
+  - corepack prepare pnpm@latest --activate
+
 stages:
   - test
 
 test:
   stage: test
+
   script:
     - pnpm install
     - pnpm run test
