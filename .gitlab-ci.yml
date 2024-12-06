@@ -1,8 +1,10 @@
-image: mcr.microsoft.com/playwright:focal
+image: mcr.microsoft.com/playwright:v1.49.0-focal
 
 before_script:
   - corepack enable
   - corepack prepare pnpm@latest --activate
+  - pnpm install
+  - pnpx playwright install chromium
 
 stages:
   - test
@@ -11,7 +13,6 @@ test:
   stage: test
 
   script:
-    - pnpm install
     - pnpm run test
   artifacts:
     paths:
