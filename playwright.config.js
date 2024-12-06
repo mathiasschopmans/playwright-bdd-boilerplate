@@ -8,5 +8,6 @@ const testDir = defineBddConfig({
 
 export default defineConfig({
   testDir,
+  workers: process.env.CI ? 1 : undefined,
   reporter: [["junit", { outputFile: "test-results/results.xml" }], ["html"]],
 });

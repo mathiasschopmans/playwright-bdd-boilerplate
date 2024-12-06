@@ -1,8 +1,15 @@
 image: mcr.microsoft.com/playwright:focal
 
+cache:
+  key:
+    files:
+      - pnpm-lock.yaml
+  paths:
+    - ~/.cache/
+    - node_modules/
+
 before_script:
   - corepack enable
-  - corepack prepare pnpm@latest --activate
   - pnpm install
   - pnpx playwright install chromium
 
@@ -11,7 +18,6 @@ stages:
 
 test:
   stage: test
-
   script:
     - pnpm run test
   artifacts:
