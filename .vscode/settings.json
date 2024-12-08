@@ -4,6 +4,8 @@
   "cucumberautocomplete.strictGherkinValidation": false,
   "cucumberautocomplete.smartSnippets": true,
   "cucumberautocomplete.onTypeFormat": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.quickSuggestions": {
     "comments": false,
     "strings": true,

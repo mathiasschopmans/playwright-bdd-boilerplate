@@ -4,19 +4,32 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write .",
     "test": "bddgen && playwright test",
     "test:ui": "bddgen && playwright test --ui",
     "watch:bdd": "nodemon -w ./features -w ./steps -e feature,js,ts --exec \"npx bddgen\"",
     "watch:pw": "playwright test --ui",
-    "watch": "pnpm run \"/^watch:.*/\""
+    "watch": "pnpm run \"/^watch:.*/\"",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab",
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
   "dependencies": {
     "@playwright/test": "^1.49.0",
-    "nodemon": "^3.1.7",
     "playwright-bdd": "^7.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.4.2"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
