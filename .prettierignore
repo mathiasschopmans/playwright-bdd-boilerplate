@@ -1,0 +1,5 @@
+.eslintrc
+.features-gen
+playwright-report
+test-results
+pnpm-lock.yaml
