@@ -10,8 +10,7 @@ cache:
 
 before_script:
   - corepack enable
-  - pnpm install
-  - pnpx playwright install chromium
+  - pnpm config set store-dir .pnpm-store
 
 stages:
   - test
@@ -19,6 +18,8 @@ stages:
 test:
   stage: test
   script:
+    - pnpm install
+    - pnpx playwright install chromium
     - pnpm run test
   artifacts:
     paths:
