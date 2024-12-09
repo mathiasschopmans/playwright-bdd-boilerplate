@@ -1,5 +1,10 @@
 name: Playwright BDD Tests
 
+permissions:
+  contents: read
+  checks: write
+  id-token: write
+
 on:
   push:
     branches:
@@ -9,7 +14,7 @@ on:
       - main
 
 jobs:
-  test:
+  playwright-bdd-tests:
     timeout-minutes: 15
     runs-on: ubuntu-24.04
     container:
@@ -39,16 +44,20 @@ jobs:
       - name: Run tests
         run: pnpm run test
 
-      - name: Upload test results
+      - name: Upload test artifacts
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: test-results/
+          name: playwright-bdd-results
+          overwrite: true
+          if-no-files-found: error
+          retention-days: 7
+          path: |
+            test-results/
+            playwright-report/
 
-      - name: Upload Playwright report
+      - name: Publish test report
+        uses: mikepenz/action-junit-report@v5
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v3
         with:
-          name: playwright-report
-          path: playwright-report/
+          report_paths: test-results/**/*.xml
