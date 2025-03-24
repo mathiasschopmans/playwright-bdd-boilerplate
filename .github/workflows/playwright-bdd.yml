@@ -16,11 +16,11 @@ on:
 jobs:
   playwright-bdd-tests:
     timeout-minutes: 15
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     container:
       # Update to a newer stable Playwright image if available:
       # Check https://hub.docker.com/_/microsoft-playwright for the latest stable version.
-      image: mcr.microsoft.com/playwright:v1.49.0-noble
+      image: mcr.microsoft.com/playwright:v1.51.1-noble
 
     steps:
       - name: Checkout code

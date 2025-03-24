@@ -1,3 +1,4 @@
 .features-gen/
+node_modules/
 playwright-report/
 test-results/
