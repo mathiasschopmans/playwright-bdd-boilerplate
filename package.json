@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "export": "bddgen export",
     "format": "prettier --write .",
     "test": "bddgen && playwright test",
     "test:ui": "bddgen && playwright test --ui",
